@@ -20,7 +20,7 @@ function draw() {
 
   background(220, 50);
   let x = map(rotationX, -90, 90, 0, width);
-  x = constrain(x, 0, width); // keep inside screen
+  x = x*100; // keep inside screen
   fill(0); 
   text(rotationX,30,30);
   ellipse(x, height / 2, 40, 40);
