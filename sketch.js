@@ -19,9 +19,9 @@ function draw() {
   if (!permissionGranted) return;
 
   background(220, 50);
-  let x = map(rotationY, -30, 30, 0, width);
+  let x = map(rotationY, -90, 90, 0, width);
   x = constrain(x, 0, width); // keep inside screen
-
+  text(rotationY,30,30);
   ellipse(x, height / 2, 40, 40);
   describe('Magnitude of device acceleration is displayed as ellipse size.');
 }
