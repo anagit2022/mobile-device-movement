@@ -19,7 +19,9 @@ function draw() {
   if (!permissionGranted) return;
 
   background(0, 64);
-
+  text("accelerationX: " + accelerationX, 20, 40);
+  text("accelerationY: " + accelerationY, 20, 80);
+  text("accelerationZ: " + accelerationZ, 20, 120);
   let x = map(accelerationX, -10, 10, 0, width);
   let y = map(accelerationY, -10, 10, 0, height);
   let diameter = map(accelerationZ, -10, 10, 10, 100);
