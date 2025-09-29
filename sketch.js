@@ -1,4 +1,5 @@
 let permissionGranted = false;
+let button;
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
@@ -6,12 +7,16 @@ function setup() {
   noStroke();
   fill(255);
 
-  // Stop draw loop until permission is given
-  noLoop();
+  // Add a button for iOS
+  button = createButton("Enable Motion");
+  button.position(width / 2 - 60, height / 2);
+  button.mousePressed(requestAccess);
+
+  noLoop(); // wait until permission is granted
 }
 
 function draw() {
-  if (!permissionGranted) return; // wait for user
+  if (!permissionGranted) return;
 
   background(0, 64);
 
@@ -22,23 +27,23 @@ function draw() {
   circle(x, y, diameter);
 }
 
-function touchStarted() {
-  // For iOS: request permission
+function requestAccess() {
   if (typeof DeviceMotionEvent !== "undefined" &&
       typeof DeviceMotionEvent.requestPermission === "function") {
+    // iOS
     DeviceMotionEvent.requestPermission()
       .then(response => {
         if (response === "granted") {
           permissionGranted = true;
-          loop(); // start drawing
+          button.remove(); // hide button
+          loop();
         }
       })
       .catch(console.error);
   } else {
-    // Android usually works without asking
+    // Android / Desktop
     permissionGranted = true;
+    button.remove();
     loop();
   }
-
-  return false; // prevent default touch behavior
 }
