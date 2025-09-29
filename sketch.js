@@ -20,7 +20,7 @@ function draw() {
 
   background(220, 50);
   fill('magenta');
-  ellipse(width / 2, height / 2, accelerationX);
+  ellipse(accelerationX, height / 2, 20);
   describe('Magnitude of device acceleration is displayed as ellipse size.');
 }
 
