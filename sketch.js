@@ -23,7 +23,8 @@ function draw() {
   x = constrain(x, 0, width);
 //  x = x; // keep inside screen
   fill(0); 
-  text(x,30,30);
+  text("x : "+x,30,30);
+  text("rotation: "+ x,30,70);
   ellipse(x, height / 2, 40, 40);
   describe('Magnitude of device acceleration is displayed as ellipse size.');
 }
