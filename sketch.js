@@ -19,10 +19,10 @@ function draw() {
   if (!permissionGranted) return;
 
   background(220, 50);
-  let x = map(rotationX, -1.3, 1.3, 0, width);
+  let x = map(rotationY, -1.3, 1.3, 0, width);
   fill(0); 
   text("x : "+x,30,30);
-  text("rotation: "+ rotationX,30,70);
+  text("rotation: "+ rotationY,30,70);
   ellipse(x, height / 2, 40, 40);
   describe('Magnitude of device acceleration is displayed as ellipse size.');
 }
