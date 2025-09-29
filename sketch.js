@@ -18,13 +18,10 @@ function setup() {
 function draw() {
   if (!permissionGranted) return;
 
-  background(0, 64);
-
-  let x = map(accelerationX, -10, 10, 0, width);
-  let y = map(accelerationY, -10, 10, 0, height);
-  let diameter = map(accelerationZ, -10, 10, 10, 100);
-
-  circle(x, y, diameter);
+  background(220, 50);
+  fill('magenta');
+  ellipse(width / 2, height / 2, accelerationX);
+  describe('Magnitude of device acceleration is displayed as ellipse size.');
 }
 
 function requestAccess() {
