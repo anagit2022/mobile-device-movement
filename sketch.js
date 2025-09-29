@@ -19,7 +19,7 @@ function draw() {
   if (!permissionGranted) return;
 
   background(220, 50);
-  let x = map(rotationX, -90, 90, 0, width);
+  let x = map(rotationX, -1.3, 1.3, 0, width);
   x = constrain(x, 0, width);
   x = x*20; // keep inside screen
   fill(0); 
